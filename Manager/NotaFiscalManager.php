@@ -35,7 +35,7 @@ class NotaFiscalManager implements NotaFiscalManagerInterface {
      *
      * @return string
      */
-    public function formatarParaExportacaoTXT($notasFiscais)
+    public function formatarParaExportacaoTXT(array $notasFiscais)
     {
         return $this->conversor->converterParaTXT($notasFiscais);
     }

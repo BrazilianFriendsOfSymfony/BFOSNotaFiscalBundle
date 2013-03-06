@@ -22,6 +22,6 @@ interface ConversorInterface {
      *
      * @return string
      */
-    static public function converterParaTXT($notasFiscais);
+    public function converterParaTXT($notasFiscais);
 
 }

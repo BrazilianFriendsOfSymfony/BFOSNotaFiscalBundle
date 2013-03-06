@@ -149,6 +149,109 @@ interface NotaFiscalInterface {
      */
     public function getMunicipioCodigoFatoGerador();
 
+    const FORMATO_IMPRESSAO_DANFE_RETRATO = 1;
+    const FORMATO_IMPRESSAO_DANFE_PAISAGEM = 2;
+
+    /**
+     * Formato de impressão da DANFE.
+     *
+     *   1 - Retrato
+     *   2 - Paisagem
+     *
+     * @return int
+     */
+    public function getFormatoImpressaoDanfe();
+
+    /**
+     * Tipo de Emissão da NF-e
+     *
+     *   1 - Normal – emissão normal;
+     *   2 - Contingência FS – emissão em contingência com impressão do DANFE em Formulário de Segurança;
+     *   3 - Contingência SCAN - emissão em contingência no Sistema de Contingência do Ambiente Nacional – SCAN;
+     *   4 - Contingência DPEC - emissão em contingência com envio da Declaração Prévia de Emissão em
+     *       Contingência - DPEC;
+     *   5 - Contingência FS-DA - emissão em contingência com impressão do DANFE em Formulário de Segurança
+     *       para Impressão de Documento Auxiliar de Documento Fiscal Eletrônico (FS-DA).
+     *
+     * @return int
+     */
+    public function getTipoEmissao();
+
+    /**
+     * Dígito Verificador da Chave de Acesso da NF-e
+     *
+     * Informar o DV da Chave de Acesso da NF-e, o DV será calculado com a aplicação do algoritmo
+     * módulo 11 (base 2,9) da Chave de Acesso. (vide item 5 do Manual de Integração)
+     *
+     * @return int
+     */
+    public function getDigitoVerificadorChaveAcesso();
+
+    /**
+     * Identificação do Ambiente
+     *
+     *   1 - Produção
+     *   2 - Homologação
+     *
+     * @return int
+     */
+    public function getIdentificacaoAmbiente();
+
+    /**
+     * Finalidade de emissão da NFe
+     *
+     *   1 - NF-e normal
+     *   2 - NF-e complementar
+     *   3 - NF-e de ajuste
+     *
+     * @return int
+     */
+    public function getFinalidadeEmissao();
+
+    const PROCESSO_EMISSAO_APLICATIVO_CONTRIBUINTE = 0;
+    const PROCESSO_EMISSAO_AVULSA_PELO_FISCO = 1;
+    const PROCESSO_EMISSAO_AVULSA_PELO_CONTRIBUINTE_VIA_SITE_FISCO = 2;
+    const PROCESSO_EMISSAO_APLICATIVO_DO_FISCO = 3;
+
+    /**
+     * Identificador do processo de emissão da NF-e
+     *
+     *   0 - emissão de NF-e com aplicativo do contribuinte;
+     *   1 - emissão de NF-e avulsa pelo Fisco;
+     *   2 - emissão de NF-e avulsa, pelo contribuinte com seu certificado digital, através do site do Fisco;
+     *   3 - emissão NF-e pelo contribuinte com aplicativo fornecido pelo Fisco.
+     *
+     * @return int
+     */
+    public function getProcessoEmissao();
+
+    /**
+     * Versão do Processo de emissão da NF-e
+     *
+     * Identificador da versão do processo de emissão (informar a versão do aplicativo emissor de NF-e).
+     *
+     * @return int
+     */
+    public function getVersaoProcessoEmissao();
+
+    /**
+     * Data e Hora da entrada em contingência
+     *
+     * Informar a data e hora de entrada em contingência no formato AAAA-MM-DDTHH:MM:SS (v.2.0).
+     *
+     * @return \DateTime
+     */
+    public function getDataHoraEntradaEmContingencia();
+
+    /**
+     * Justificativa da entrada em contingência
+     *
+     * Informar a Justificativa da entrada em (v.2.0)
+     *
+     * @return string
+     */
+    public function getJustificafivaEntradaEmContingencia();
+
     /**
      * Destinario da nota fiscal.
      *
@@ -167,5 +270,28 @@ interface NotaFiscalInterface {
      * @return array Os itens da Nota Fiscal
      */
     public function getItens();
+
+    /**
+     * Valor Total dos produtos e serviços
+     *
+     * @return float
+     */
+    public function getValorTotalItens();
+
+    /**
+     * Valor Total de frete da NFE.
+     *
+     * @return float
+     */
+    public function getValorTotalFrete();
+
+    /**
+     * Valor Total da NFE.
+     *
+     * Inclui o valor dos itens, frete, etc
+     *
+     * @return float
+     */
+    public function getValorTotal();
 
 }

@@ -12,6 +12,8 @@
 namespace BFOS\NotaFiscalBundle\Manager;
 
 
+use BFOS\NotaFiscalBundle\Model\NotaFiscalInterface;
+
 interface NotaFiscalManagerInterface {
 
     /**

@@ -36,6 +36,13 @@ interface ParteInterface {
     public function getCpf();
 
     /**
+     * Retorna a I.E.
+     *
+     * @return string
+     */
+    public function getInscricaoEstadual();
+
+    /**
      * Retorna o endereço.
      *
      * @return string
@@ -48,6 +55,13 @@ interface ParteInterface {
      * @return string
      */
     public function getNumero();
+
+    /**
+     * Retorna o complemento.
+     *
+     * @return string
+     */
+    public function getComplemento();
 
     /**
      * Retorna o bairro ou distrito.
