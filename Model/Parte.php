@@ -195,19 +195,19 @@ abstract class Parte implements ParteInterface
 
     public function setCep($cep)
     {
-        $this->cep = $cep;
+        $this->cep = preg_replace("/[^0-9]+/","",$cep);
         return $this;
     }
 
     public function setCpf($cpf)
     {
-        $this->cpf = str_replace('.', '', str_replace('-','',$cpf));
+        $this->cpf = preg_replace("/[^0-9]+/","",$cpf);;
         return $this;
     }
 
     public function setCnpj($cnpj)
     {
-        $this->cnpj = str_replace('.', '', str_replace('-','',$cnpj));;
+        $this->cnpj = preg_replace("/[^0-9]+/","",$cnpj);
         return $this;
     }
 

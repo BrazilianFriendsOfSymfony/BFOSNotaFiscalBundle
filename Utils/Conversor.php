@@ -211,7 +211,7 @@ class Conversor implements ConversorInterface {
         $valorUnitarioComercial = number_format($item->getValorUnitarioComercial(), 2, '.', '');
         $valorUnitarioTributavel = number_format($item->getValorUnitarioTributavel(), 2, '.', '');
         $valorTotal = number_format($item->getValorTotal(), 2, '.', '');
-        $valorTotalFrete = number_format($item->getValorTotalFrete(), 2, '.', '');
+        $valorTotalFrete = $item->getValorTotalFrete() > 0 ? number_format($item->getValorTotalFrete(), 2, '.', '') : '';
         $dados = array(
             $item->getCodigo(),
             $item->getCodigoEAN(),
